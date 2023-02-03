@@ -9,12 +9,12 @@ before:
 builds:
   - env:
       - CGO_ENABLED=0
-    goarch:
-      - amd64
     goos:
       - linux
       - windows
       - darwin
+    goarch:
+      - amd64
 
 archives:
   - format: tar.gz
@@ -44,3 +44,9 @@ changelog:
 # Feel free to remove those if you don't want/use them.
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
+
+brews:
+  - tap:
+      owner: akokubu
+      name: homebrew-tap
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
